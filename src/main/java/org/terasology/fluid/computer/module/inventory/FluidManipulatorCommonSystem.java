@@ -15,7 +15,7 @@
  */
 package org.terasology.fluid.computer.module.inventory;
 
-import org.terasology.browser.data.basic.HTMLLikeParser;
+import org.terasology.rendering.nui.widgets.browser.data.basic.HTMLLikeParser;
 import org.terasology.computer.system.common.ComputerLanguageRegistry;
 import org.terasology.computer.system.common.ComputerModuleRegistry;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
