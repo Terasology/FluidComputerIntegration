@@ -26,6 +26,8 @@ import org.terasology.logic.config.ModuleConfigManager;
 import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
 
+import java.util.Collections;
+
 @RegisterSystem(RegisterMode.ALWAYS)
 public class FluidManipulatorCommonSystem extends BaseComponentSystem {
     public static final String COMPUTER_FLUID_MODULE_TYPE = "FluidManipulator";
@@ -48,11 +50,11 @@ public class FluidManipulatorCommonSystem extends BaseComponentSystem {
         if (moduleConfigManager.getBooleanVariable("FluidComputerIntegration", "registerModule.manipulator", true)) {
             computerLanguageRegistry.registerObjectType(
                     "FluidInventoryBinding",
-                    HTMLLikeParser.parseHTMLLike(null, "An object that tells a method how to access a fluid inventory. Usually used as a parameter " +
+                    Collections.singleton(HTMLLikeParser.parseHTMLLikeParagraph(null, "An object that tells a method how to access a fluid inventory. Usually used as a parameter " +
                             "for methods in Fluid Manipulator computer module. This object comes in two types defined upon creation:<l>" +
                             "* input - that allows to place fluids in the specified inventory,<l>" +
                             "* output - that allows to extract fluids from the specified inventory.<l>" +
-                            "Attempting to use an incorrect type as a parameter of a method will result in an ExecutionException."));
+                            "Attempting to use an incorrect type as a parameter of a method will result in an ExecutionException.")));
 
             computerModuleRegistry.registerComputerModule(
                     COMPUTER_FLUID_MODULE_TYPE,

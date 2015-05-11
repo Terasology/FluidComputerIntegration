@@ -39,10 +39,10 @@ public class FluidInventoryAndChangedConditionMethod extends AbstractModuleMetho
     public FluidInventoryAndChangedConditionMethod(String methodName, FluidManipulatorConditionsRegister fluidManipulatorConditionsRegister) {
         super("Gets the information about fluids stored in the inventory as well as a Condition " +
                         "that allows to wait for the inventory's contents to be changed.", "Map",
-                "Map containing to entries:\n" +
+                "Map containing to entries:<l>" +
                         "- \"inventory\" - containing a List of Maps, with each entry in the list corresponding to one slot " +
                         "in the fluid inventory, and each entry Map containing two keys - \"type\" with String value of fluid type, " +
-                        "as specified in the getFluidType() method, and \"volume\" with Number value, specifying volume of the fluid in that slot\n" +
+                        "as specified in the getFluidType() method, and \"volume\" with Number value, specifying volume of the fluid in that slot<l>" +
                         "- \"condition\" - containing condition you could wait on to listen on a change of the fluid inventory from " +
                         "the state described in the \"inventory\" key. Please note, that the condition might be fulfilled even though " +
                         "the fluid inventory state has not changed.");
