@@ -15,11 +15,11 @@
  */
 package org.terasology.fluid.computer.module.inventory;
 
-import org.terasology.computer.system.server.lang.os.condition.AbstractConditionCustomObject;
-import org.terasology.computer.system.server.lang.os.condition.LatchCondition;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import org.terasology.computer.system.server.lang.os.condition.InventoryCondition;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.entity.lifecycleEvents.BeforeDeactivateComponent;
-import org.terasology.entitySystem.entity.lifecycleEvents.OnActivatedComponent;
 import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
@@ -28,45 +28,42 @@ import org.terasology.fluid.component.FluidInventoryComponent;
 import org.terasology.fluid.event.FluidVolumeChangedInInventory;
 import org.terasology.registry.Share;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
 @Share(FluidManipulatorConditionsRegister.class)
 public class FluidManipulatorServerSystem extends BaseComponentSystem implements FluidManipulatorConditionsRegister {
-    private Map<EntityRef, LatchCondition> fluidChangeConditions = new HashMap<>();
+    private Multimap<EntityRef, InventoryCondition> fluidChangeConditions = HashMultimap.create();
 
     @Override
-    public AbstractConditionCustomObject registerFluidInventoryChangeListener(EntityRef entity) {
-        LatchCondition latchCondition = fluidChangeConditions.get(entity);
-        if (latchCondition != null)
-            return latchCondition;
-
-        latchCondition = new LatchCondition();
+    public void addFluidInventoryChangeListener(EntityRef entity, InventoryCondition latchCondition) {
         fluidChangeConditions.put(entity, latchCondition);
+    }
 
-        return latchCondition;
+    @Override
+    public void removeFluidInventoryChangeListener(EntityRef entity, InventoryCondition latchCondition) {
+        fluidChangeConditions.remove(entity, latchCondition);
     }
 
     @ReceiveEvent
     public void inventoryChange(FluidVolumeChangedInInventory event, EntityRef inventory) {
-        processChangedInventory(inventory);
+        Iterator<InventoryCondition> latchIterator = fluidChangeConditions.get(inventory).iterator();
+        while (latchIterator.hasNext()) {
+            InventoryCondition latchCondition = latchIterator.next();
+            if (latchCondition.checkRelease()) {
+                latchIterator.remove();
+            }
+        }
     }
 
     @ReceiveEvent
     public void inventoryRemoved(BeforeDeactivateComponent event, EntityRef inventory, FluidInventoryComponent inventoryComponent) {
-        processChangedInventory(inventory);
-    }
-
-    @ReceiveEvent
-    public void inventoryAdded(OnActivatedComponent event, EntityRef inventory, FluidInventoryComponent inventoryComponent) {
-        processChangedInventory(inventory);
-    }
-
-    private void processChangedInventory(EntityRef inventory) {
-        LatchCondition latchCondition = fluidChangeConditions.remove(inventory);
-        if (latchCondition != null) {
-            latchCondition.release(null);
+        Iterator<InventoryCondition> latchIterator = fluidChangeConditions.get(inventory).iterator();
+        while (latchIterator.hasNext()) {
+            InventoryCondition latchCondition = latchIterator.next();
+            latchIterator.remove();
+            latchCondition.cancelCondition();
         }
     }
+
 }
