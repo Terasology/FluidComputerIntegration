@@ -8,7 +8,7 @@
         { "id": "Fluid", "minVersion": "2.0.0" },
         { "id": "Inventory", "minVersion": "1.1.0" },
         { "id": "MobileBlocks", "minVersion": "1.0.0" },
-        { "id": "ModularComputers", "minVersion": "0.1.0" }
+        { "id": "ModularComputers", "minVersion": "1.0.0" }
     ],
     "isServerSideOnly": false,
     "isLibrary": true
