@@ -1,10 +1,10 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.inventory;
+package org.terasology.fluidcomputerintegration.inventory;
 
-import org.terasology.computer.module.DefaultComputerModule;
 import org.terasology.engine.world.BlockEntityRegistry;
 import org.terasology.fluid.system.FluidManager;
+import org.terasology.modularcomputers.module.DefaultComputerModule;
 
 public class FluidManipulatorComputerModule extends DefaultComputerModule {
     public FluidManipulatorComputerModule(FluidManipulatorConditionsRegister fluidManipulatorConditionsRegister,

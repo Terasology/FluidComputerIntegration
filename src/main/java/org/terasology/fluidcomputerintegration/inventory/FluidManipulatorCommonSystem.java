@@ -1,9 +1,7 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.inventory;
+package org.terasology.fluidcomputerintegration.inventory;
 
-import org.terasology.computer.system.common.ComputerLanguageRegistry;
-import org.terasology.computer.system.common.ComputerModuleRegistry;
 import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
 import org.terasology.engine.entitySystem.systems.RegisterMode;
 import org.terasology.engine.entitySystem.systems.RegisterSystem;
@@ -12,6 +10,8 @@ import org.terasology.engine.registry.In;
 import org.terasology.engine.rendering.nui.widgets.browser.data.basic.HTMLLikeParser;
 import org.terasology.engine.world.BlockEntityRegistry;
 import org.terasology.fluid.system.FluidManager;
+import org.terasology.modularcomputers.system.common.ComputerLanguageRegistry;
+import org.terasology.modularcomputers.system.common.ComputerModuleRegistry;
 
 import java.util.Collections;
 

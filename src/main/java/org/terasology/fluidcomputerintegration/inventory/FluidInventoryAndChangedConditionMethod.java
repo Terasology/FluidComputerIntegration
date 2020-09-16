@@ -1,14 +1,14 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.inventory;
+package org.terasology.fluidcomputerintegration.inventory;
 
-import com.gempukku.lang.ExecutionException;
-import com.gempukku.lang.Variable;
-import org.terasology.computer.context.ComputerCallback;
-import org.terasology.computer.module.inventory.InventoryBinding;
-import org.terasology.computer.system.server.lang.AbstractModuleMethodExecutable;
-import org.terasology.computer.system.server.lang.os.condition.InventoryCondition;
 import org.terasology.fluid.system.FluidUtils;
+import org.terasology.modularcomputers.context.ComputerCallback;
+import org.terasology.modularcomputers.module.inventory.InventoryBinding;
+import org.terasology.modularcomputers.shadedlibs.com.gempukku.lang.ExecutionException;
+import org.terasology.modularcomputers.shadedlibs.com.gempukku.lang.Variable;
+import org.terasology.modularcomputers.system.server.lang.AbstractModuleMethodExecutable;
+import org.terasology.modularcomputers.system.server.lang.os.condition.InventoryCondition;
 
 import java.util.ArrayList;
 import java.util.HashMap;

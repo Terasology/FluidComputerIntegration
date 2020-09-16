@@ -1,11 +1,7 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.inventory;
+package org.terasology.fluidcomputerintegration.inventory;
 
-import com.gempukku.lang.CustomObject;
-import com.gempukku.lang.ExecutionException;
-import org.terasology.computer.context.ComputerCallback;
-import org.terasology.computer.module.inventory.InventoryBinding;
 import org.terasology.engine.entitySystem.entity.EntityRef;
 import org.terasology.engine.math.Direction;
 import org.terasology.engine.math.IntegerRange;
@@ -14,6 +10,10 @@ import org.terasology.fluid.component.FluidInventoryAccessComponent;
 import org.terasology.fluid.component.FluidInventoryComponent;
 import org.terasology.math.geom.Vector3f;
 import org.terasology.math.geom.Vector3i;
+import org.terasology.modularcomputers.context.ComputerCallback;
+import org.terasology.modularcomputers.module.inventory.InventoryBinding;
+import org.terasology.modularcomputers.shadedlibs.com.gempukku.lang.CustomObject;
+import org.terasology.modularcomputers.shadedlibs.com.gempukku.lang.ExecutionException;
 
 import java.util.Collection;
 import java.util.Collections;

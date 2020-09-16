@@ -1,9 +1,9 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.storage;
+package org.terasology.fluidcomputerintegration.storage;
 
-import org.terasology.computer.module.DefaultComputerModule;
-import org.terasology.computer.system.server.lang.ComputerModule;
+import org.terasology.modularcomputers.module.DefaultComputerModule;
+import org.terasology.modularcomputers.system.server.lang.ComputerModule;
 
 import java.util.Collection;
 

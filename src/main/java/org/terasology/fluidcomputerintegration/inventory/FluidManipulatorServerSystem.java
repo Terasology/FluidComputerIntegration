@@ -1,10 +1,9 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.inventory;
+package org.terasology.fluidcomputerintegration.inventory;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import org.terasology.computer.system.server.lang.os.condition.InventoryCondition;
 import org.terasology.engine.entitySystem.entity.EntityRef;
 import org.terasology.engine.entitySystem.entity.lifecycleEvents.BeforeDeactivateComponent;
 import org.terasology.engine.entitySystem.event.ReceiveEvent;
@@ -14,6 +13,7 @@ import org.terasology.engine.entitySystem.systems.RegisterSystem;
 import org.terasology.engine.registry.Share;
 import org.terasology.fluid.component.FluidInventoryComponent;
 import org.terasology.fluid.event.FluidVolumeChangedInInventory;
+import org.terasology.modularcomputers.system.server.lang.os.condition.InventoryCondition;
 
 import java.util.Iterator;
 

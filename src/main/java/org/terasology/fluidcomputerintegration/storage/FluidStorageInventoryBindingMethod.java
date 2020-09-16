@@ -1,11 +1,11 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.fluid.computer.module.storage;
+package org.terasology.fluidcomputerintegration.storage;
 
-import com.gempukku.lang.ExecutionException;
-import com.gempukku.lang.Variable;
-import org.terasology.computer.context.ComputerCallback;
-import org.terasology.computer.system.server.lang.AbstractModuleMethodExecutable;
+import org.terasology.modularcomputers.context.ComputerCallback;
+import org.terasology.modularcomputers.shadedlibs.com.gempukku.lang.ExecutionException;
+import org.terasology.modularcomputers.shadedlibs.com.gempukku.lang.Variable;
+import org.terasology.modularcomputers.system.server.lang.AbstractModuleMethodExecutable;
 
 import java.util.Map;
 
