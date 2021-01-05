@@ -26,6 +26,7 @@ import org.terasology.logic.inventory.InventoryAccessComponent;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.math.Direction;
 import org.terasology.math.IntegerRange;
+import org.terasology.math.JomlUtil;
 import org.terasology.math.geom.Vector3f;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.world.BlockEntityRegistry;
@@ -65,7 +66,7 @@ public class RelativeFluidInventoryBindingCustomObject implements CustomObject, 
 
     @Override
     public InventoryWithSlots getInventoryEntity(int line, ComputerCallback computerCallback) throws ExecutionException {
-        Vector3f computerLocation = computerCallback.getComputerLocation();
+        Vector3f computerLocation = JomlUtil.from(computerCallback.getComputerLocation());
         Vector3i directionVector = inventoryDirection.getVector3i();
         Vector3i inventoryLocation = new Vector3i(
                 computerLocation.x + directionVector.x,
