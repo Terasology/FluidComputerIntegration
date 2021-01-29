@@ -17,18 +17,16 @@ package org.terasology.fluid.computer.module.inventory;
 
 import com.gempukku.lang.CustomObject;
 import com.gempukku.lang.ExecutionException;
+import org.joml.RoundingMode;
+import org.joml.Vector3i;
+import org.joml.Vector3ic;
 import org.terasology.computer.context.ComputerCallback;
 import org.terasology.computer.module.inventory.InventoryBinding;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.fluid.component.FluidInventoryAccessComponent;
 import org.terasology.fluid.component.FluidInventoryComponent;
-import org.terasology.logic.inventory.InventoryAccessComponent;
-import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.math.Direction;
 import org.terasology.math.IntegerRange;
-import org.terasology.math.JomlUtil;
-import org.terasology.math.geom.Vector3f;
-import org.terasology.math.geom.Vector3i;
 import org.terasology.world.BlockEntityRegistry;
 
 import java.util.Collection;
@@ -66,12 +64,9 @@ public class RelativeFluidInventoryBindingCustomObject implements CustomObject, 
 
     @Override
     public InventoryWithSlots getInventoryEntity(int line, ComputerCallback computerCallback) throws ExecutionException {
-        Vector3f computerLocation = JomlUtil.from(computerCallback.getComputerLocation());
-        Vector3i directionVector = inventoryDirection.getVector3i();
-        Vector3i inventoryLocation = new Vector3i(
-                computerLocation.x + directionVector.x,
-                computerLocation.y + directionVector.y,
-                computerLocation.z + directionVector.z);
+        Vector3i computerLocation = new Vector3i(computerCallback.getComputerLocation(), RoundingMode.FLOOR);
+        Vector3ic directionVector = inventoryDirection.asVector3i();
+        Vector3i inventoryLocation = computerLocation.add(directionVector, new Vector3i());
 
         EntityRef blockEntityAt = blockEntityRegistry.getBlockEntityAt(inventoryLocation);
         if (!blockEntityAt.hasComponent(FluidInventoryComponent.class)
