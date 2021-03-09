@@ -15,10 +15,8 @@
  */
 package org.terasology.fluid.computer.module.inventory;
 
-import org.terasology.computer.system.server.lang.os.condition.AbstractConditionCustomObject;
 import org.terasology.computer.system.server.lang.os.condition.InventoryCondition;
-import org.terasology.computer.system.server.lang.os.condition.LatchCondition;
-import org.terasology.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.entity.EntityRef;
 
 public interface FluidManipulatorConditionsRegister {
     void addFluidInventoryChangeListener(EntityRef entity, InventoryCondition latchCondition);

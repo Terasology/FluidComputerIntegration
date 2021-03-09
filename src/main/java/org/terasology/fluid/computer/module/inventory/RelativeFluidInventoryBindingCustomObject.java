@@ -22,12 +22,12 @@ import org.joml.Vector3i;
 import org.joml.Vector3ic;
 import org.terasology.computer.context.ComputerCallback;
 import org.terasology.computer.module.inventory.InventoryBinding;
-import org.terasology.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.math.Direction;
+import org.terasology.engine.math.IntegerRange;
+import org.terasology.engine.world.BlockEntityRegistry;
 import org.terasology.fluid.component.FluidInventoryAccessComponent;
 import org.terasology.fluid.component.FluidInventoryComponent;
-import org.terasology.math.Direction;
-import org.terasology.math.IntegerRange;
-import org.terasology.world.BlockEntityRegistry;
 
 import java.util.Collection;
 import java.util.Collections;

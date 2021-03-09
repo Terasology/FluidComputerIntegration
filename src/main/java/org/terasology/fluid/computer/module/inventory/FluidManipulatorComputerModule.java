@@ -16,8 +16,8 @@
 package org.terasology.fluid.computer.module.inventory;
 
 import org.terasology.computer.module.DefaultComputerModule;
+import org.terasology.engine.world.BlockEntityRegistry;
 import org.terasology.fluid.system.FluidManager;
-import org.terasology.world.BlockEntityRegistry;
 
 public class FluidManipulatorComputerModule extends DefaultComputerModule {
     public FluidManipulatorComputerModule(FluidManipulatorConditionsRegister fluidManipulatorConditionsRegister, FluidManager fluidManager,
