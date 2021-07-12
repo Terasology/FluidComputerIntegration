@@ -9,4 +9,9 @@ import org.terasology.gestalt.entitysystem.component.Component;
 public class FluidInternalStorageComponent implements Component<FluidInternalStorageComponent> {
     @Owns
     public EntityRef inventoryEntity;
+
+    @Override
+    public void copy(FluidInternalStorageComponent other) {
+        this.inventoryEntity = other.inventoryEntity;
+    }
 }
