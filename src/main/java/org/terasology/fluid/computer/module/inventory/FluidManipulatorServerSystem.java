@@ -20,13 +20,13 @@ import com.google.common.collect.Multimap;
 import org.terasology.computer.system.server.lang.os.condition.InventoryCondition;
 import org.terasology.engine.entitySystem.entity.EntityRef;
 import org.terasology.engine.entitySystem.entity.lifecycleEvents.BeforeDeactivateComponent;
-import org.terasology.engine.entitySystem.event.ReceiveEvent;
 import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
 import org.terasology.engine.entitySystem.systems.RegisterMode;
 import org.terasology.engine.entitySystem.systems.RegisterSystem;
 import org.terasology.engine.registry.Share;
 import org.terasology.fluid.component.FluidInventoryComponent;
 import org.terasology.fluid.event.FluidVolumeChangedInInventory;
+import org.terasology.gestalt.entitysystem.event.ReceiveEvent;
 
 import java.util.Iterator;
 
